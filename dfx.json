@@ -1,0 +1,39 @@
+{
+  "canisters": {
+    "dkeeper_backend": {
+      "main": "src/dkeeper_backend/main.mo",
+      "type": "motoko",
+      "bindings": [
+        {
+          "source": "src/dkeeper_backend/did/dkeeper_backend.did",
+          "output": {
+            "module": "dkeeper_backend",
+            "type": "typescript"
+          }
+        }
+      ]
+    },
+    "dkeeper_frontend": {
+      "dependencies": [
+        "dkeeper_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/dkeeper_frontend/src/index.html"
+      },
+      "source": [
+        "src/dkeeper_frontend/assets",
+        "dist/dkeeper_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
